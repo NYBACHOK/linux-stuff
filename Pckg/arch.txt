@@ -1,0 +1,2 @@
+sudo pacman -Sy steam discord telegram blender kdenlive krita vivaldi wine winetricks htop gparted gedit 
+yay google-chrome unity-hub mono
