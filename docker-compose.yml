@@ -24,6 +24,9 @@ services:
       POSTGRES_DB: Rapaport
   elasticsearch:
     image: elasticsearch:7.16.2
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
     ports:
       - "9200:9200"
       - "9300:9300"
