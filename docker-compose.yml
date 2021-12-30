@@ -1,15 +1,19 @@
 version: '3'
 services:
   redis:
-    container_name: "cache"
-    image: bitnami/redis:latest
-    ports:
-      - "6379:6379"
-    volumes:
-      - ./config/redis.conf:/redis.conf
+    container_name: redis
+    hostname: redis
+    image: redis
+
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
     environment:
-      - ALLOW_EMPTY_PASSWORD=yes   
-    command: [ "redis-server", "/redis.conf" ]
+    - REDIS_HOSTS=local:redis:6379
+    ports:
+    - "8081:8081"
   psql:
     image: postgres
     ports:
