@@ -1,0 +1,19 @@
+version: '3'
+services:
+     redis:
+        container_name: "cache"
+        image: bitnami/redis:latest
+        ports:
+         - "6379:6379"
+        volumes:
+         - ./config/redis.conf:/redis.conf
+        environment:
+         - ALLOW_EMPTY_PASSWORD=yes   
+        command: [ "redis-server", "/redis.conf" ]
+     psql:
+      image: postgres
+      ports:
+        - "5432:5432"
+      environment:
+        POSTGRES_PASSWORD: 123
+        POSTGRES_DB: Rapaport
