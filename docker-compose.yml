@@ -5,6 +5,8 @@ services:
     container_name: redis
     hostname: redis
     image: redis
+    environment:
+    - ALLOW_EMPTY_PASSWORD=yes
 
   redis-commander:
     container_name: redis-commander
@@ -15,8 +17,10 @@ services:
     - REDIS_HOSTS=local:redis:6379
     ports:
     - "8081:8081"
+  
   psql:
     image: postgres
+    container_name: psql
     ports:
       - "5432:5432"
     environment:
@@ -24,6 +28,7 @@ services:
       POSTGRES_DB: Rapaport
   elasticsearch:
     image: elasticsearch:7.16.2
+    container_name: elastic
     environment:
       - xpack.security.enabled=false
       - discovery.type=single-node
@@ -32,6 +37,7 @@ services:
       - "9300:9300"
     networks:
       - docker_elk
+  
   kibana:
     image: kibana:7.16.2
     ports:
@@ -40,6 +46,7 @@ services:
       - elasticsearch
     networks:
       - docker_elk
+
 networks:
   docker_elk:
     driver: bridge
