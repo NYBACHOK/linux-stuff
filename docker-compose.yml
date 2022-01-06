@@ -1,15 +1,15 @@
 version: '3.4'
 
 services:
-  redis:
-    container_name: redis
-    hostname: redis
-    image: redis
-    environment:
-    - ALLOW_EMPTY_PASSWORD=yes
-    command: redis-server /home/guba/redis.conf
-    volumes:
-    - ./redis.conf:/home/guba/redis.conf
+# redis:
+#    container_name: redis
+#    hostname: redis
+#    image: redis
+#    environment:
+#    - ALLOW_EMPTY_PASSWORD=yes
+#    command: redis-server /home/guba/redis.conf
+#    volumes:
+#    - ./redis.conf:/home/guba/redis.conf
   redis-commander:
     container_name: redis-commander
     hostname: redis-commander
