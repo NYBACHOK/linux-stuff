@@ -9,7 +9,7 @@ services:
    - ALLOW_EMPTY_PASSWORD=yes
    volumes:
    - ./redis.conf:/home/guba/redis.conf
-  command: redis-server redis.conf
+   command: redis-server redis.conf
   redis-commander:
     container_name: redis-commander
     hostname: redis-commander
