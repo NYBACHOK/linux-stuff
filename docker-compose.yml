@@ -7,9 +7,9 @@ services:
    image: redis
    environment:
    - ALLOW_EMPTY_PASSWORD=yes
-   command: redis-server redis.conf
    volumes:
    - ./redis.conf:/home/guba/redis.conf
+  command: redis-server redis.conf
   redis-commander:
     container_name: redis-commander
     hostname: redis-commander
