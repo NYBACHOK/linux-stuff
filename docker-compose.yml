@@ -1,24 +1,24 @@
 version: '3.4'
 
 services:
-  redis:
-   container_name: redis
-   hostname: redis
-   image: redis
-   environment:
-   - ALLOW_EMPTY_PASSWORD=yes
-   volumes:
-   - ./redis.conf:/home/guba/redis.conf
-   command: redis-server redis.conf
-  redis-commander:
-    container_name: redis-commander
-    hostname: redis-commander
-    image: rediscommander/redis-commander:latest
-    restart: always
-    environment:
-    - REDIS_HOSTS=local:redis:6379
-    ports:
-    - "8081:8081"
+  # redis:
+  #  container_name: redis
+  #  hostname: redis
+  #  image: redis
+  #  environment:
+  #  - ALLOW_EMPTY_PASSWORD=yes
+  #  volumes:
+  #  - ./redis.conf:/home/guba/redis.conf
+  #  command: redis-server redis.conf
+  # redis-commander:
+  #   container_name: redis-commander
+  #   hostname: redis-commander
+  #   image: rediscommander/redis-commander:latest
+  #   restart: always
+  #   environment:
+  #   - REDIS_HOSTS=local:redis:6379
+  #   ports:
+  #   - "8081:8081"
   
   psql:
     image: postgres
